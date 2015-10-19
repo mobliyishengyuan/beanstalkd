@@ -10,7 +10,7 @@ typedef uint32_t      uint32;
 typedef int64_t       int64;
 typedef uint64_t      uint64;
 
-#define int8_t   do_not_use_int8_t
+#define int8_t   do_not_use_int8_t   // 通过这种定义，让无法使用？
 #define uint8_t  do_not_use_uint8_t
 #define int32_t  do_not_use_int32_t
 #define uint32_t do_not_use_uint32_t
