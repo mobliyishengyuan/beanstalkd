@@ -3,17 +3,17 @@
 #include <string.h>
 #include "dat.h"
 
-
-static void
-set(Heap *h, int k, void *x)
+// 静态函数只在定义文件中可见
+static void  
+set(Heap *h, int k, void *x) // 设置第k个元素为x
 {
     h->data[k] = x;
-    h->rec(x, k);
+    h->rec(x, k); // ?
 }
 
 
 static void
-swap(Heap *h, int a, int b)
+swap(Heap *h, int a, int b) // 交互第a个元素和第b个元素
 {
     void *tmp;
 
@@ -24,14 +24,14 @@ swap(Heap *h, int a, int b)
 
 
 static int
-less(Heap *h, int a, int b)
+less(Heap *h, int a, int b) // 返回第a个元素和第b个元素值小的 less 
 {
     return h->less(h->data[a], h->data[b]);
 }
 
 
 static void
-siftdown(Heap *h, int k)
+siftdown(Heap *h, int k) // 下沉
 {
     for (;;) {
         int p = (k-1) / 2; /* parent */
@@ -47,7 +47,7 @@ siftdown(Heap *h, int k)
 
 
 static void
-siftup(Heap *h, int k)
+siftup(Heap *h, int k) // 上升
 {
     for (;;) {
         int l, r, s;
@@ -77,7 +77,7 @@ heapinsert(Heap *h, void *x)
 {
     int k;
 
-    if (h->len == h->cap) {
+    if (h->len == h->cap) { // 长度等于容量，则扩容
         void **ndata;
         int ncap = (h->len+1) * 2; /* allocate twice what we need */
 
